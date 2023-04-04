@@ -1,4 +1,3 @@
 *.properties
-*.*
-/target/*
-/src/*
+/target/classes/*
+/target/
