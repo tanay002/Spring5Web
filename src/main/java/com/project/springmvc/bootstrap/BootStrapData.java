@@ -17,55 +17,52 @@ import com.project.springmvc.repository.PublisherRepository;
 @Component
 public class BootStrapData implements CommandLineRunner
 {
-	@Autowired
 	private final AuthorRepository authorRepository;
-
-	@Autowired
 	private final BookRepository bookRepository;
-
-	@Autowired
 	private final PublisherRepository publisherRepository;
 
-	public BootStrapData(AuthorRepository authorRepository, BookRepository bookRepository,PublisherRepository publisherRepository) {
-		super();
+	public BootStrapData(AuthorRepository authorRepository, BookRepository bookRepository, PublisherRepository publisherRepository) {
 		this.authorRepository = authorRepository;
 		this.bookRepository = bookRepository;
-		this.publisherRepository=publisherRepository;
+		this.publisherRepository = publisherRepository;
 	}
-
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		Author author=new Author("Seema", "Kedar");
-		Books book = new Books("DBMS",2L);
-		author.getBooks().add(book);
-		book.getAuthors().add(author);
-		
-		authorRepository.save(author);
-		bookRepository.save(book);
-		
-    /* --------------------------------------------------------------------- */
-		
-		Author author2=new Author("Pravin", "Sharma");
-		Books book2 = new Books("Data Structure",3L);
-		author2.getBooks().add(book2);
-		book2.getAuthors().add(author2);
-	
-		authorRepository.save(author2);
-		bookRepository.save(book2);
-		
-		Publisher publisher1 =new Publisher("Tanay Saxena","Sky Residency","Madhya Pradesh","Indore", "452020");
-		Publisher publisher2 =new Publisher("Ashu","Sathak Residency","Madhya Pradesh","Indore", "452010");
-		Publisher publisher3 =new Publisher("satish Nanda","Sapna Sangeeta","Madhya Pradesh","Bhopal", "786720");
-		Publisher publisher4 =new Publisher("Ranjeet Singh","Kent","Madhya Pradesh","Guna", "898020");
-		publisherRepository.save(publisher1);
-		publisherRepository.save(publisher2);
-		publisherRepository.save(publisher3);
-		publisherRepository.save(publisher4);
-		
-		System.out.println("Number of book present: "+bookRepository.count());
-		System.out.println("Number of Publisher present: "+publisherRepository.count());
-	}
 
+		Publisher publisher = new Publisher();
+		publisher.setName("SNG Publisher");
+		publisher.setCity("DNC Publisher");
+		publisher.setState("Sharma Publisher");
+
+		publisherRepository.save(publisher);
+
+		System.out.println("Publisher Count: " + publisherRepository.count());
+
+		Author auth = new Author("Tanay", "Saxena");
+		Books book = new Books("Data Structure", "990");
+		auth.getBooks().add(book);
+		book.getAuthors().add(auth);
+		book.setPublisher(publisher);
+		publisher.getBooks().add(book);
+
+		authorRepository.save(auth);
+		bookRepository.save(book);
+		publisherRepository.save(publisher);
+
+		Author auth1 = new Author("Vineet", "Pathak");
+		Books book1 = new Books("Core Java", "39394");
+		auth1.getBooks().add(book1);
+		book1.getAuthors().add(auth1);
+
+		book1.setPublisher(publisher);
+		publisher.getBooks().add(book1);
+
+		authorRepository.save(auth1);
+		bookRepository.save(book1);
+		publisherRepository.save(publisher);
+
+		System.out.println("Number of Books: " + bookRepository.count());
+		System.out.println("Publisher Number of Books: " + publisher.getBooks().size());
+	}
 }
