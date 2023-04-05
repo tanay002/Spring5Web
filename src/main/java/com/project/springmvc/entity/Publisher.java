@@ -1,11 +1,14 @@
 package com.project.springmvc.entity;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Publisher 
@@ -19,6 +22,15 @@ public class Publisher
 	private String city;
 	private String zip;
 	
+	@OneToMany
+	private Set<Books> books=new HashSet<>();
+	
+	public Set<Books> getBooks() {
+		return books;
+	}
+	public void setBooks(Set<Books> books) {
+		this.books = books;
+	}
 	public Long getId() {
 		return id;
 	}

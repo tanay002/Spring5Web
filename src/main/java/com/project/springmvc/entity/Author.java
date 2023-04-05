@@ -1,5 +1,6 @@
 package com.project.springmvc.entity;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -19,7 +20,7 @@ public class Author {
 	private String lastName;
 	
 	@ManyToMany(mappedBy = "authors")
-	private Set<Books> books;
+	private Set<Books> books=new HashSet<>();
 	
 	public Author() {
 		super();

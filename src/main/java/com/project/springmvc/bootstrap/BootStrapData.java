@@ -39,27 +39,19 @@ public class BootStrapData implements CommandLineRunner
 		// TODO Auto-generated method stub
 		Author author=new Author("Seema", "Kedar");
 		Books book = new Books("DBMS",2L);
-
-		Set<Author> auth=new HashSet<Author>();
-		auth.add(author);
-		Set<Books> bookk=new HashSet<Books>();
-		bookk.add(book);
-		author.setBooks(bookk);
-		book.setAuthors(auth);
-
+		author.getBooks().add(book);
+		book.getAuthors().add(author);
+		
 		authorRepository.save(author);
 		bookRepository.save(book);
-
+		
+    /* --------------------------------------------------------------------- */
+		
 		Author author2=new Author("Pravin", "Sharma");
 		Books book2 = new Books("Data Structure",3L);
-
-		Set<Author> auth3=new HashSet<Author>();
-		auth3.add(author2);
-		Set<Books> bookk3=new HashSet<Books>();
-		bookk3.add(book2);
-		author2.setBooks(bookk3);
-		book2.setAuthors(auth3);
-
+		author2.getBooks().add(book2);
+		book2.getAuthors().add(author2);
+	
 		authorRepository.save(author2);
 		bookRepository.save(book2);
 		
