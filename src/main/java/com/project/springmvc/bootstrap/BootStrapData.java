@@ -63,10 +63,10 @@ public class BootStrapData implements CommandLineRunner
 		authorRepository.save(author2);
 		bookRepository.save(book2);
 		
-		Publisher publisher1 =new Publisher("Sky Residency","Madhya Pradesh","Indore", "452020");
-		Publisher publisher2 =new Publisher("Sathak Residency","Madhya Pradesh","Indore", "452010");
-		Publisher publisher3 =new Publisher("Sapna Sangeeta","Madhya Pradesh","Bhopal", "786720");
-		Publisher publisher4 =new Publisher("Kent","Madhya Pradesh","Guna", "898020");
+		Publisher publisher1 =new Publisher("Tanay Saxena","Sky Residency","Madhya Pradesh","Indore", "452020");
+		Publisher publisher2 =new Publisher("Ashu","Sathak Residency","Madhya Pradesh","Indore", "452010");
+		Publisher publisher3 =new Publisher("satish Nanda","Sapna Sangeeta","Madhya Pradesh","Bhopal", "786720");
+		Publisher publisher4 =new Publisher("Ranjeet Singh","Kent","Madhya Pradesh","Guna", "898020");
 		publisherRepository.save(publisher1);
 		publisherRepository.save(publisher2);
 		publisherRepository.save(publisher3);

@@ -13,10 +13,12 @@ public class Publisher
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String name;
 	private String addressLine1;
 	private String state;
 	private String city;
 	private String zip;
+	
 	public Long getId() {
 		return id;
 	}
@@ -47,13 +49,21 @@ public class Publisher
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	@Override
 	public String toString() {
-		return "Publisher [id=" + id + ", addressLine1=" + addressLine1 + ", state=" + state + ", city=" + city
+		return "Publisher [name="+name+", id=" + id + ", addressLine1=" + addressLine1 + ", state=" + state + ", city=" + city
 				+ ", zip=" + zip + "]";
 	}
-	public Publisher(String addressLine1, String state, String city, String zip) {
+	public Publisher(String name,String addressLine1, String state, String city, String zip) {
 		super();
+		this.name=name;
 		this.addressLine1 = addressLine1;
 		this.state = state;
 		this.city = city;
