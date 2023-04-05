@@ -61,7 +61,7 @@ public class Author {
 	
 	public String toString()
 	{
-		return id+" "+firstName+" "+lastName+" "+books;
+		return id+" "+firstName+" "+lastName;
 	}
 
 	@Override
